@@ -3,7 +3,7 @@
 @section('title', 'List Penjualan')
 @section('content-header', 'List Penjualan')
 @section('content-actions')
-    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#rekapHarianModal">Rekap Harian</a>
+    <a href="#" class="btn" data-toggle="modal" data-target="#rekapHarianModal">Rekap Harian</a>
 @endsection
 
 @section('content')
@@ -21,7 +21,7 @@
                                 <input type="date" name="end_date" class="form-control" value="{{ request('end_date') }}" />
                             </div>
                             <div class="col-md-2">
-                                <button class="btn btn-outline-primary" type="submit">Submit</button>
+                                <button class="btn" type="submit">Submit</button>
                             </div>
                         </div>
                     </form>
@@ -51,15 +51,15 @@
                     <td>{{ $order->paymentMethod() }}</td>
                     <td>{{ $order->created_at }}</td>
                     <td>
-                        <button class="btn btn-primary btn-order-details" data-order-id="{{ $order->id }}" data-toggle="modal" data-target="#orderDetailsModal">
+                        <button class="btn btn-order-details" data-order-id="{{ $order->id }}" data-toggle="modal" data-target="#orderDetailsModal">
                             <i class="fas fa-eye"></i> Detail
                         </button>
                         <a href="{{ route('orders.print', ['order' => $order->id]) }}" class="btn btn-secondary" target="_blank">
                             <i class="fas fa-print"></i> Print
                         </a>
                         @hasrole('superadmin')
-                        <button class="btn btn-danger btn-delete" data-url="{{ route('orders.destroy', $order) }}">
-                            <i class="fas fa-trash"></i>
+                        <button class="btn btn-delete" data-url="{{ route('orders.destroy', $order) }}">
+                            <i class="fas fa-trash"></i> Hapus
                         </button>
                         @endhasrole
                     </td>
@@ -98,7 +98,7 @@
                 <!-- Order details will be dynamically loaded here -->
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
@@ -153,12 +153,28 @@
                 <div id="rekapHarianResult"></div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Keluar</button>
-                <button type="button" class="btn btn-primary" id="rekapHarianBtn">Tampilkan Rekap Harian</button>
+                <button type="button" class="btn" data-dismiss="modal">Keluar</button>
+                <button type="button" class="btn" id="rekapHarianBtn">Tampilkan Rekap Harian</button>
             </div>
         </div>
     </div>
 </div>
+
+<style>
+    .btn {
+    background-color: #5541D7;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    border: 1px solid #5541D7; /* Add an outline */
+    }
+
+    /* Button hover styles */
+    .btn:hover {
+        background-color: #fff;
+        color: #5541D7;
+        border: 1px solid #5541D7; /* Add an outline */
+    }
+    </style>
 
 <!-- Include jQuery library -->
 <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>

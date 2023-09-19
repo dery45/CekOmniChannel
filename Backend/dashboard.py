@@ -9,7 +9,7 @@ import json
 
 app = Flask(__name__)
 api = Api(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost:3306/laravel'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost:3306/cekomnichannel'
 CORS(app)
 
 init_db(app)

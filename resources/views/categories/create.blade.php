@@ -24,11 +24,25 @@
                     @enderror
                 </div>
 
-                <button class="btn btn-primary" type="submit">Simpan</button>
+                <button class="btn" type="submit">Simpan</button>
             </form>
         </div>
     </div>
+    <style>
+    .btn {
+    background-color: #5541D7;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    border: 1px solid #5541D7; /* Add an outline */
+    }
 
+    /* Button hover styles */
+    .btn:hover {
+        background-color: #fff;
+        color: #5541D7;
+        border: 1px solid #5541D7; /* Add an outline */
+    }
+    </style>
 @endsection
 
 @section('js')

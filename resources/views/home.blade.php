@@ -3,137 +3,121 @@
 @section('content-header', 'Dashboard')
 
 @section('content')
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-3">
-                <div class="form-group">
-                    <label for="startDate">Tanggal Mulai:</label>
-                    <div class="input-group">
-                        <input type="date" class="form-control" id="startDate" name="start_date">
-                        <div class="input-group-append">
-                            <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-3">
-                <div class="form-group">
-                    <label for="endDate">Tanggal Akhir:</label>
-                    <div class="input-group">
-                        <input type="date" class="form-control" id="endDate" name="end_date">
-                        <div class="input-group-append">
-                            <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
-                        </div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3">
+            <div class="form-group">
+                <label for="startDate">Tanggal Mulai:</label>
+                <div class="input-group">
+                    <input type="date" class="form-control" id="startDate" name="start_date">
+                    <div class="input-group-append">
+                        <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-3 col-6">
-                <div class="small-box bg-info small-box-custom">
-                    <div class="inner">
-                        <h3 id="totalOrder" style="color: #fff;"></h3>
-                        <p style="color: #fff;">Total Order</p>
-                    </div>
-                    <div class="icon">
-                        <i class="ion ion-bag" style="color: #fff;"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-6">
-                <div class="small-box bg-success small-box-custom">
-                    <div class="inner">
-                        <h3 id="totalIncome" style="color: #fff;"></h3>
-                        <p style="color: #fff;">Total Barang Terjual</p>
-                    </div>
-                    <div class="icon">
-                        <i class="ion ion-stats-bars" style="color: #fff;"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-6">
-                <div class="small-box bg-danger small-box-custom">
-                    <div class="inner">
-                        <h3 id="incomeToday" style="color: #fff;"></h3>
-                        <p style="color: #fff;">Total Pendapatan</p>
-                    </div>
-                    <div class="icon">
-                        <i class="ion ion-pie-graph" style="color: #fff;"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-6">
-                <div class="small-box bg-warning small-box-custom">
-                    <div class="inner">
-                        <h3 id="totalCustomers" style="color: #fff;"></h3>
-                        <p style="color: #fff;">Profit</p>
-                    </div>
-                    <div class="icon">
-                        <i class="ion ion-person-add" style="color: #fff;"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <canvas id="incomeChart" width="400" height="250"></canvas>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <canvas id="orderQuantityChart" width="400" height="250"></canvas>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <canvas id="paymentStatsChart" width="400" height="250"></canvas>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <table id="topProductsTable" class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th>Product</th>
-                                    <th>Quantity</th>
-                                </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="form-group">
-                            <label for="productId">Product:</label>
-                            <select class="form-control" id="productId" name="product_id">
-                                @foreach ($products ?? [] as $product)
-                                    <option value="{{ $product->id }}">{{ $product->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <canvas id="stockHistoryChart" width="400" height="250"></canvas>
+        <div class="col-3">
+            <div class="form-group">
+                <label for="endDate">Tanggal Akhir:</label>
+                <div class="input-group">
+                    <input type="date" class="form-control" id="endDate" name="end_date">
+                    <div class="input-group-append">
+                        <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-lg-3 col-6">
+            <div class="small-box small-box-custom">
+                <div class="inner">
+                    <h3 id="totalOrder" style="color: #fff;"></h3>
+                    <p style="color: #fff;">Total Order</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-bag" style="color: #fff;"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-6">
+            <div class="small-box small-box-custom">
+                <div class="inner">
+                    <h3 id="totalIncome" style="color: #fff;"></h3>
+                    <p style="color: #fff;">Total Barang Terjual</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-stats-bars" style="color: #fff;"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-6">
+            <div class="small-box small-box-custom">
+                <div class="inner">
+                    <h3 id="incomeToday" style="color: #fff;"></h3>
+                    <p style="color: #fff;">Total Pendapatan</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-pie-graph" style="color: #fff;"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-6">
+            <div class="small-box small-box-custom">
+                <div class="inner">
+                    <h3 id="totalCustomers" style="color: #fff;"></h3>
+                    <p style="color: #fff;">Profit</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-person-add" style="color: #fff;"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <canvas id="incomeChart" width="400" height="250"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <canvas id="orderQuantityChart" width="400" height="250"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <canvas id="paymentStatsChart" width="400" height="250"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <table id="topProductsTable" class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Quantity</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -188,7 +172,6 @@
                 },
                 error: function (xhr, status, error) {
                     console.log('Error fetching dashboard box data from API:', error);
-                    alert('Error fetching dashboard box data from API.');
                 }
             });
         }
@@ -214,7 +197,6 @@
                 },
                 error: function (xhr, status, error) {
                     console.log('Error fetching income-profit data from API:', error);
-                    alert('Error fetching income-profit data from API.');
                 }
             });
         }
@@ -254,7 +236,7 @@
                       label: 'Pendapatan',
                       data: incomeValues,
                       backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                      borderColor: 'rgba(54, 162, 235, 1)',
+                      borderColor: 'rgba(85, 65, 215, 1)',
                       fill: true,
                       lineTension: 0.3 // Adjust the tension here (0.1 to 0.5 recommended)
                   }, {
@@ -293,7 +275,6 @@
                     },
                     error: function (xhr, status, error) {
                         console.log('Error fetching order-quantity data from API:', error);
-                        alert('Error fetching order-quantity data from API.');
                     }
                 });
             }
@@ -303,7 +284,7 @@
                 var orderCountData = Object.values(data).map(item => parseInt(item.order_count));
                 var qtyCountData = Object.values(data).map(item => parseInt(item.qty_count));
                 var maxCount = Math.max(...orderCountData, ...qtyCountData);
-                var barColors = ['rgba(54, 162, 235, 0.8)', 'rgba(255, 99, 132, 0.8)'];
+                var barColors = ['rgba(85, 65, 215, 1)', 'rgba(255, 99, 132, 0.8)'];
 
                 var ctx = document.getElementById('orderQuantityChart').getContext('2d');
 
@@ -385,7 +366,6 @@
                     },
                     error: function (xhr, status, error) {
                         console.log('Error fetching payment stats data from API:', error);
-                        alert('Error fetching payment stats data from API.');
                     }
                 });
             }
@@ -411,7 +391,7 @@
                         datasets: [{
                             data: values,
                             percentages: percentages,
-                            backgroundColor: ['rgba(54, 162, 235, 0.8)', 'rgba(255, 99, 132, 0.8)'], // Adjust the colors as needed
+                            backgroundColor: ['rgba(85, 65, 215, 1)', 'rgba(255, 99, 132, 0.8)'], // Adjust the colors as needed
                             borderWidth: 0
                         }]
                     },
@@ -469,7 +449,6 @@
                 },
                 error: function (xhr, status, error) {
                     console.log('Error fetching top products data from API:', error);
-                    alert('Error fetching top products data from API.');
                 }
             });
         }
@@ -558,7 +537,6 @@
                 },
                 error: function (xhr, status, error) {
                     console.log('Error fetching stock history data from API:', error);
-                    alert('Error fetching stock history data from API.');
                 }
             });
         }
@@ -617,9 +595,29 @@
 </script>
 
 <style>
+    /* Add your custom styles here */
     .small-box-custom {
-        height: 100px; /* Adjust the height as needed */
-        padding: 10px; /* Adjust the padding as needed */
+        background-color: #5541D7;
+        color: #fff;
+        font-family: 'Roboto', sans-serif;
+        text-align: center;
+        padding: 20px 0;
+        border-radius: 5px;
+        height: 150px;
+    }
+
+    .small-box-custom p {
+        margin: 0;
+    }
+
+    .input-group-text {
+        background-color: #5541D7;
+        color: #fff;
+        border: none;
+    }
+
+    .form-control {
+        border: 1px solid #5541D7;
     }
 </style>
 

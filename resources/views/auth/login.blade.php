@@ -27,11 +27,7 @@
                 </div>
             </div>
         </div>
-        @error('email')
-        <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
-        @enderror
+       
     </div>
     <div class="form-group">
 
@@ -44,6 +40,11 @@
                 </div>
             </div>
         </div>
+        @error('email')
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+        </span>
+        @enderror
         @error('password')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
@@ -51,14 +52,6 @@
         @enderror
     </div>
     <div class="row">
-        <div class="col-8">
-            <div class="icheck-primary">
-                <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                <label for="remember">
-                    Ingat Saya
-                </label>
-            </div>
-        </div>
         <!-- /.col -->
         <div class="col-4">
             <button type="submit" class="btn btn-primary btn-block">Masuk</button>

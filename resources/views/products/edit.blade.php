@@ -167,10 +167,26 @@
                 @enderror
             </div>
 
-            <button type="submit" class="btn btn-primary">Simpan</button>
+            <button type="submit" class="btn">Simpan</button>
         </form>
     </div>
 </div>
+
+<style>
+    .btn {
+    background-color: #5541D7;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    border: 1px solid #5541D7; /* Add an outline */
+    }
+
+    /* Button hover styles */
+    .btn:hover {
+        background-color: #fff;
+        color: #5541D7;
+        border: 1px solid #5541D7; /* Add an outline */
+    }
+</style>
 
 @yield('js')
 

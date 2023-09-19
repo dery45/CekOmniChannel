@@ -4,8 +4,8 @@
 @section('content-header', 'List Produk')
 @section('content-actions')
 @hasanyrole('superadmin|inventory')
-<button class="btn btn-success" data-toggle="modal" data-target="#importModal">Import CSV</button>
-<a href="{{route('products.create')}}" class="btn btn-primary">Tambah Data</a>
+<button class="btn" data-toggle="modal" data-target="#importModal">Import CSV</button>
+<a href="{{route('products.create')}}" class="btn">Tambah Data</a>
 @endhasanyrole
 @endsection
 @section('css')
@@ -18,7 +18,7 @@
         <div class="input-group">
             <input type="text" name="search" id="searchInput" class="form-control" placeholder="Search...">
             <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="submit">Search</button>
+                <button class="btn" type="submit">Search</button>
             </div>
         </div>
     </form>
@@ -48,8 +48,8 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                                <button type="submit" class="btn btn-primary">Import</button>
+                                <button type="button" class="btn" data-dismiss="modal">Batal</button>
+                                <button type="submit" class="btn">Import</button>
                             </div>
                         </form>
                     </div>
@@ -90,10 +90,10 @@
                     <td>{{$product->updated_at}}</td>
                     @hasanyrole('superadmin|inventory')
                     <td>
-                        <a href="{{ route('products.edit', $product) }}" class="btn btn-primary">
+                        <a href="{{ route('products.edit', $product) }}" class="btn">
                             <i class="fas fa-edit"></i>
                         </a>
-                        <button class="btn btn-danger btn-delete"
+                        <button class="btn btn-delete"
                             data-url="{{ route('products.destroy', $product) }}"><i class="fas fa-trash"></i>
                         </button>
                     </td>
@@ -106,6 +106,22 @@
          {{ $products->links() }}
     </div>
 </div>
+
+<style>
+    .btn {
+    background-color: #5541D7;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    border: 1px solid #5541D7; /* Add an outline */
+    }
+
+    /* Button hover styles */
+    .btn:hover {
+        background-color: #fff;
+        color: #5541D7;
+        border: 1px solid #5541D7; /* Add an outline */
+    }
+</style>
 @endsection
 @section('js')
 <script src="{{ asset('plugins/sweetalert2/sweetalert2.min.js') }}"></script>

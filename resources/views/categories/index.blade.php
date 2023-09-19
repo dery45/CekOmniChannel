@@ -4,7 +4,7 @@
 @section('content-header', 'List Kategori')
 @section('content-actions')
 @hasanyrole('superadmin|inventory')
-<a href="{{route('categories.create')}}" class="btn btn-primary">Tambah Kategori</a>
+<a href="{{ route('categories.create') }}" class="btn btn-primary" style="">Tambah Kategori</a>
 @endhasanyrole
 @endsection
 @section('css')
@@ -15,7 +15,6 @@
     <div class="card-body">
         <table class="table">
             <!-- Import Modal -->
-
             <thead>
                 <tr>
                     <th>ID</th>
@@ -36,21 +35,34 @@
                     <td>{{ $category->updated_at }}</td>
                     @hasanyrole('superadmin|inventory')
                     <td>
-                        <a href="{{ route('categories.edit', $category) }}" class="btn btn-primary"><i
-                                class="fas fa-edit"></i></a>
-                        <button class="btn btn-danger btn-delete"
-                            data-url="{{ route('categories.destroy', $category) }}"><i class="fas fa-trash"></i>
-                        </button>
+                        <a href="{{ route('categories.edit', $category) }}" class="btn"><i class="fas fa-edit"></i></a>
+                        <button class="btn btn-delete" data-url="{{ route('categories.destroy', $category) }}"><i class="fas fa-trash"></i></button>
                     </td>
                     @endhasanyrole
                 </tr>
                 @endforeach
             </tbody>
         </table>
-         <!-- Add pagination links -->
+        <!-- Add pagination links -->
         {{ $categories->links() }}
     </div>
 </div>
+
+<style>
+    .btn {
+    background-color: #5541D7;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    border: 1px solid #5541D7; /* Add an outline */
+    }
+
+    /* Button hover styles */
+    .btn:hover {
+        background-color: #fff;
+        color: #5541D7;
+        border: 1px solid #5541D7; /* Add an outline */
+    }
+</style>
 @endsection
 
 @section('js')
