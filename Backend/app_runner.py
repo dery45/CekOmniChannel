@@ -10,7 +10,7 @@ os.chdir(directory1)
 subprocess.call(command1, shell=True)
 
 # Command 2
-directory2 = r'C:\xampp\htdocs\CekOmniChannel-App'
+directory2 = r'C:\xampp\htdocs\CekOmniChannel-2'
 command2 = 'npm run dev'
 os.chdir(directory2)
 subprocess.Popen(['cmd', '/k', command2], shell=True)
@@ -20,13 +20,13 @@ command3 = 'php artisan serve'
 subprocess.Popen(['cmd', '/k', command3], shell=True)
 
 # Command 4
-directory4 = r"C:\xampp\htdocs\CekOmniChannel-App\Backend\venv\Scripts"
+directory4 = r"C:\xampp\htdocs\CekOmniChannel-2\Backend\venv\Scripts"
 command4 = 'activate.bat && cd ../.. && waitress-serve --port=5550 rekap_harian:app'
 os.chdir(directory4)
 subprocess.Popen(['cmd', '/k', command4], shell=True)
 
 # Command 5
-directory5 = r"C:\xampp\htdocs\CekOmniChannel-App\Backend\venv\Scripts"
+directory5 = r"C:\xampp\htdocs\CekOmniChannel-2\Backend\venv\Scripts"
 command5 = 'activate.bat && cd ../.. && waitress-serve --port=5551 dashboard:app'
 os.chdir(directory5)
 subprocess.Popen(['cmd', '/k', command5], shell=True)

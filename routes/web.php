@@ -8,6 +8,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\IntegrationController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -28,6 +29,7 @@ Route::group(['middleware' => ['role:admin']], function () {
 Route::group(['middleware' => ['role:superadmin|admin']], function () {
      // Home route
      Route::get('/admin', [HomeController::class, 'index'])->name('home');
+     Route::get('/integration', [IntegrationController::class, 'index'])->name('integration.index');
 });
 
 // Routes for superadmin and cashier

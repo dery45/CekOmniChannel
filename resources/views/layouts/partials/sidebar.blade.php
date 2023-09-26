@@ -81,6 +81,16 @@
                 </li>
                 @endhasanyrole
 
+                <!-- integration -->
+                @hasrole('superadmin|admin')
+                <li class="nav-item {{ 'integration' == request()->path() ? 'menu-open active' : '' }}">
+                    <a href="{{ route('integration.index') }}" class="nav-link">
+                        <i class="nav-icon fa-solid fa-link {{ 'integration' == request()->path() ? 'active' : '' }}"></i>
+                        <p style="font-family: 'Roboto', sans-serif; {{ 'integration' == request()->path() ? 'color: #5541D7;' : '' }} font-size: 16px;">Integrasi</p>
+                    </a>
+                </li>
+                @endhasrole
+
                 <!-- Settings -->
                 @hasrole('superadmin')
                 <li class="nav-item {{ 'settings' == request()->path() ? 'menu-open active' : '' }}">
